@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://60ei2k8ei1nq"]
+
+[ext_resource type="Script" uid="uid://7bxoqk13fwe6" path="res://2d_world_first.gd" id="1_wtcfe"]
+
+[node name="2D_World" type="Node2D" unique_id=1800237748]
+script = ExtResource("1_wtcfe")
+
+[node name="Label" type="Label" parent="." unique_id=469323578]
+offset_left = 89.0
+offset_top = 44.0
+offset_right = 129.0
+offset_bottom = 67.0
+text = "Hello & Welcome to Godot!"
+
+[node name="Button" type="Button" parent="." unique_id=875497230]
+offset_left = 159.0
+offset_top = 82.0
+offset_right = 220.0
+offset_bottom = 136.0
+text = "Say Hi"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
