@@ -79,9 +79,9 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=7356707]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_5iqjx")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.21765968
+frame_progress = 0.4040916
 offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1586093038]
