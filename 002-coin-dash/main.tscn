@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d0pg0gv3wnrg0" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dja75mms7h54r" path="res://player.tscn" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c35yifujfvjaj" path="res://coin.tscn" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://buf8gb0kw77yg" path="res://hud.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node" unique_id=1533792250]
 script = ExtResource("1_1bvp3")
@@ -22,3 +23,10 @@ stretch_mode = 1
 position = Vector2(88, 99)
 
 [node name="GameTimer" type="Timer" parent="." unique_id=2124289330]
+
+[node name="HUD" parent="." unique_id=225015838 instance=ExtResource("5_lquwl")]
+
+[connection signal="hurt" from="Player" to="." method="_on_player_hurt"]
+[connection signal="pickup" from="Player" to="." method="_on_player_pickup"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="_on_hud_start_game"]

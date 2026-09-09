@@ -14,7 +14,6 @@ func _ready() -> void:
 	screensize = get_viewport().get_visible_rect().size
 	$Player.screensize = screensize
 	$Player.hide()
-	new_game()
 	
 func check_remaining_coins():
 	if playing and get_tree().get_nodes_in_group("coins").size() == 0:
@@ -35,6 +34,10 @@ func new_game():
 	$Player.show()
 	$GameTimer.start()
 	spawn_coins()
+	# Update HUD
+	$HUD.update_score(score)
+	$HUD.update_timer(time_left)
+	
 	
 func spawn_coins():
 	for i in level + 4:
@@ -45,3 +48,31 @@ func spawn_coins():
 			randi_range(20, screensize.x), 
 			randi_range(20, screensize.y)
 		)
+		
+		
+func game_over():
+	playing = false
+	$GameTimer.stop()
+	get_tree().call_group("coins", "queue_free")
+	$HUD.show_game_over()
+	$Player.die()
+
+
+func _on_game_timer_timeout() -> void:
+	time_left -= 1
+	$HUD.update_timer(time_left)
+	if time_left <= 0:
+		game_over()
+
+
+func _on_player_hurt() -> void:
+	game_over()
+
+
+func _on_player_pickup() -> void:
+	score += 1
+	$HUD.update_score(score)
+
+
+func _on_hud_start_game() -> void:
+	new_game()
