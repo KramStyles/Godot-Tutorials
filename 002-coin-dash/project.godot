@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="002 Coin Dash"
-run/main_scene="uid://dja75mms7h54r"
+run/main_scene="uid://cmgxpcx0aga8t"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

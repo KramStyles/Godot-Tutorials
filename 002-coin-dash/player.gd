@@ -41,3 +41,12 @@ func die():
 	$AnimatedSprite2D.animation = "hurt"
 	set_process(false)  # Tells Godot to stop calling _process()
 	
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("coins"):
+		area.pickup()
+		pickup.emit()
+	if area.is_in_group("obstacles"):
+		hurt.emit()
+		die()
