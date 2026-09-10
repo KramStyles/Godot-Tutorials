@@ -4,14 +4,16 @@ extends RigidBody2D
 @export var spin_power = 8000
 
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
-var state = INIT
+var state = ALIVE
 var thrust = Vector2.ZERO
 var rotation_dir = 0
+var screensize = Vector2.ZERO
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	screensize = get_viewport_rect().size
+	print(screensize)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,9 +27,25 @@ func get_input():
 		return
 	if Input.is_action_pressed("thrust"):
 		thrust = transform.x * engine_power
+	rotation_dir = Input.get_axis("rotate_left", "rotate_right")
 	
+	
+func _physics_process(delta: float) -> void:
+	constant_force = thrust
+	constant_torque = rotation_dir * spin_power
 	
 
+func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
+	## This code handles screen wrapping (teleporting the body to the opposite 
+	## edge of the screen when it moves off-screen, like in Asteroids) 
+	## inside Godot's physics engine.
+	var xform = _state.transform
+	# use wrapf to keep the position bounded between 0 & screensize(x,y).
+	# if it moves pass right, teleports to left and vice versa
+	xform.origin.x = wrapf(xform.origin.x, 0, screensize.x)
+	xform.origin.y = wrapf(xform.origin.y, 0, screensize.y)
+	_state.transform = xform
+	
 
 func change_state(new_state):
 	match new_state:
