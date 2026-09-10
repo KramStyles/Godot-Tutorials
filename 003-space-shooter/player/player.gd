@@ -2,18 +2,21 @@ extends RigidBody2D
 
 @export var engine_power = 500
 @export var spin_power = 8000
+@export var bullet_scene : PackedScene
+@export var fire_rate = 0.25
 
 enum {INIT, ALIVE, INVULNERABLE, DEAD}
 var state = ALIVE
 var thrust = Vector2.ZERO
 var rotation_dir = 0
 var screensize = Vector2.ZERO
+var can_shoot = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screensize = get_viewport_rect().size
-	print(screensize)
+	$GunCooldown.wait_time = fire_rate
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,7 +30,19 @@ func get_input():
 		return
 	if Input.is_action_pressed("thrust"):
 		thrust = transform.x * engine_power
+	if Input.is_action_pressed("shoot") and can_shoot:
+		shoot()
 	rotation_dir = Input.get_axis("rotate_left", "rotate_right")
+	
+
+func shoot():
+	if state == INVULNERABLE:
+		return
+	can_shoot = false
+	$GunCooldown.start()
+	var bullet = bullet_scene.instantiate()
+	get_tree().root.add_child(bullet)
+	bullet.start($Muzzle.global_transform)
 	
 	
 func _physics_process(delta: float) -> void:
@@ -58,3 +73,7 @@ func change_state(new_state):
 		ALIVE:
 			$CollisionShape2D.set_deferred("disabled", false)
 	state = new_state
+
+
+func _on_gun_cooldown_timeout() -> void:
+	can_shoot = true
