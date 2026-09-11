@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://buf8gb0kw77yg"]
+
+[ext_resource type="FontFile" uid="uid://c1b3pwivwn4nu" path="res://assets/Kenney Bold.ttf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://55mjdjj0trto" path="res://hud.gd" id="1_64ctp"]
+[ext_resource type="Texture2D" uid="uid://b5b7rff8i5hji" path="res://icon.svg" id="3_8sq4i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5h11f"]
+font = ExtResource("1_37p78")
+font_size = 48
+shadow_size = 5
+shadow_color = Color(0.14518386, 0.8084016, 0.9501799, 0)
+shadow_offset = Vector2(2, 2)
+
+[node name="HUD" type="CanvasLayer" unique_id=225015838]
+script = ExtResource("1_64ctp")
+
+[node name="Message" type="Label" parent="." unique_id=472752697]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Coin Dash!"
+label_settings = SubResource("LabelSettings_5h11f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1468289889]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Score" type="Label" parent="MarginContainer" unique_id=386377677]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5h11f")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="MarginContainer" unique_id=11237901]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_5h11f")
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=314490981]
+wait_time = 2.0
+one_shot = true
+
+[node name="StartButton" type="Button" parent="." unique_id=1196603802]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -32.0
+offset_right = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Click to begin"
+theme_override_constants/h_separation = 7
+theme_override_constants/icon_max_width = 50
+theme_override_fonts/font = ExtResource("1_37p78")
+theme_override_icons/icon = ExtResource("3_8sq4i")
+text = "Start"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

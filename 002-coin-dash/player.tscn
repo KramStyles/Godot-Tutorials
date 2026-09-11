@@ -72,7 +72,6 @@ animations = [{
 size = Vector2(44, 48)
 
 [node name="Player" type="Area2D" unique_id=566661526]
-position = Vector2(26, 29)
 script = ExtResource("1_urp6f")
 metadata/_edit_group_ = true
 
@@ -86,3 +85,5 @@ offset = Vector2(0, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1586093038]
 shape = SubResource("RectangleShape2D_5h11f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
