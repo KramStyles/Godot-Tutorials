@@ -12,7 +12,7 @@ func explode():
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.hide()
 	$ExplosionNode/AnimationPlayer.play("explosion")
-	$ExplosionNode/Explosion.show()
+	$ExplosionNode.show()
 	exploded.emit(size, radius, position, linear_velocity)
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0

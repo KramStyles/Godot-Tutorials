@@ -5,6 +5,15 @@ extends Node2D
 var screensize = Vector2.ZERO
 
 
+func _on_rock_exploded(size, radius, pos, vel):
+	if size <= 1: return
+	for offset in [-1, 1]:
+		var dir = $Player.position.direction_to(pos).orthogonal() * offset
+		var new_pos = pos + (dir * radius)
+		var new_val = dir * vel.length() * 1.1
+		spawn_rock(size - 1, new_pos, new_val)
+
+
 func spawn_rock(size, pos=null, vel=null):
 	if pos == null:
 		$RockPath/RockSpawn.progress = randi()
@@ -15,6 +24,7 @@ func spawn_rock(size, pos=null, vel=null):
 		
 	var rock = rock_scene.instantiate()
 	rock.screensize = screensize
+	rock.exploded.connect(self._on_rock_exploded)
 	rock.start(pos, vel, size)
 	call_deferred("add_child", rock)
 
