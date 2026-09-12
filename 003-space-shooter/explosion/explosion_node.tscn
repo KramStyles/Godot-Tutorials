@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dwrhjipyut1du"]
+
+[ext_resource type="Texture2D" uid="uid://cr8oxfp8lg2ue" path="res://assets/explosion.png" id="1_f2xat"]
+
+[sub_resource type="Animation" id="Animation_f2xat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [63]
+}
+
+[sub_resource type="Animation" id="Animation_m84mp"]
+resource_name = "explosion"
+length = 0.64
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.64),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1, 63]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ygpt"]
+_data = {
+&"RESET": SubResource("Animation_f2xat"),
+&"explosion": SubResource("Animation_m84mp")
+}
+
+[node name="ExplosionNode" type="Node2D" unique_id=878190031]
+
+[node name="Explosion" type="Sprite2D" parent="." unique_id=122794174]
+texture = ExtResource("1_f2xat")
+hframes = 8
+vframes = 8
+frame = 63
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1741767305]
+root_node = NodePath("../Explosion")
+libraries/ = SubResource("AnimationLibrary_2ygpt")
