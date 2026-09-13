@@ -13,6 +13,7 @@ _data = {
 point_count = 5
 
 [node name="Main" type="Node2D" unique_id=1106565214]
+process_mode = 3
 script = ExtResource("1_c651c")
 rock_scene = ExtResource("2_3wy1v")
 
@@ -31,5 +32,6 @@ position = Vector2(32, 32)
 
 [node name="HUD" parent="." unique_id=1551265386 instance=ExtResource("5_3wy1v")]
 
+[connection signal="dead" from="Player" to="." method="game_over"]
 [connection signal="lives_changed" from="Player" to="HUD" method="update_lives"]
 [connection signal="start_game" from="HUD" to="." method="new_game"]

@@ -37,6 +37,13 @@ func reset():
 func _ready() -> void:
 	screensize = get_viewport_rect().size
 	$GunCooldown.wait_time = fire_rate
+	
+
+func explode():
+	$ExplosionNode.show()
+	$ExplosionNode/AnimationPlayer.play("explosion")
+	await $ExplosionNode/AnimationPlayer.animation_finished
+	$ExplosionNode.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -89,14 +96,32 @@ func change_state(new_state):
 	match new_state:
 		INIT:
 			$CollisionShape2D.set_deferred("disabled", true)
+			$Sprite2D.modulate.a = 0.5
 		INVULNERABLE:
 			$CollisionShape2D.set_deferred("disabled", true)
+			$Sprite2D.modulate.a = 0.5
+			$InvulnerabilityTimer.start()
 		DEAD:
 			$CollisionShape2D.set_deferred("disabled", true)
+			$Sprite2D.hide()
+			linear_velocity = Vector2.ZERO
+			dead.emit()
 		ALIVE:
 			$CollisionShape2D.set_deferred("disabled", false)
+			$Sprite2D.modulate.a = 1
 	state = new_state
 
 
 func _on_gun_cooldown_timeout() -> void:
 	can_shoot = true
+
+
+func _on_invulnerability_timer_timeout() -> void:
+	change_state(ALIVE)
+
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("rocks"):
+		body.explode()
+		lives -= 1
+		explode()

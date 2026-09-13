@@ -54,6 +54,20 @@ func spawn_rock(size, pos=null, vel=null):
 	rock.exploded.connect(self._on_rock_exploded)
 	rock.start(pos, vel, size)
 	call_deferred("add_child", rock)
+	
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if not playing: return
+		var paused = get_tree().paused
+		get_tree().paused = not paused
+		var message = $HUD/VBoxContainer/Message
+		if not paused:
+			message.text = "Paused"
+			message.show()
+		else:
+			message.text = ""
+			message.hide()
 
 
 func _ready():
