@@ -10,6 +10,24 @@ var time_left = 0
 var screensize = Vector2.ZERO
 var playing = false
 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		if not playing: return
+		get_tree().paused = not get_tree().paused
+		var message = $HUD/Message
+		if get_tree().paused:
+			message.text = "Paused!"
+			message.show()
+			set_process(false)
+			#$GameTimer.stop()
+		else:
+			message.text = ""
+			message.hide()
+			set_process(true)
+			#$GameTimer.start()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screensize = get_viewport().get_visible_rect().size

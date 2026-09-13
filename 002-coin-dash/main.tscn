@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://c0ed7b81wa0xu" path="res://assets/audio/Powerup.wav" id="9_kek77"]
 
 [node name="Main" type="Node" unique_id=1533792250]
+process_mode = 3
 script = ExtResource("1_1bvp3")
 coin_scene = ExtResource("2_lquwl")
 power_up_scene = ExtResource("3_4c57u")
@@ -29,6 +30,7 @@ stretch_mode = 1
 position = Vector2(88, 99)
 
 [node name="GameTimer" type="Timer" parent="." unique_id=2124289330]
+process_mode = 1
 
 [node name="HUD" parent="." unique_id=225015838 instance=ExtResource("5_lquwl")]
 
