@@ -6,6 +6,8 @@ var playing = false
 
 
 @export var rock_scene : PackedScene
+@export var enemy_scene : PackedScene
+
 var screensize = Vector2.ZERO
 
 
@@ -29,6 +31,7 @@ func game_over():
 func new_level():
 	level += 1
 	$HUD.show_message("Wave %s" % level)
+	$EnemyTimer.start(randf_range(5, 10))
 	for i in level:
 		spawn_rock(3)
 
@@ -77,3 +80,10 @@ func _ready():
 func _process(delta: float) -> void:
 	if not playing: return
 	if get_tree().get_nodes_in_group("rocks").size() == 0: new_level()
+
+
+func _on_enemy_timer_timeout() -> void:
+	var enemy = enemy_scene.instantiate()
+	add_child(enemy)
+	enemy.target = $Player
+	$EnemyTimer.start(randf_range(20, 40))
