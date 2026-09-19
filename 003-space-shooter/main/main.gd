@@ -80,6 +80,9 @@ func _ready():
 func _process(delta: float) -> void:
 	if not playing: return
 	if get_tree().get_nodes_in_group("rocks").size() == 0: new_level()
+	
+	
+	
 
 
 func _on_enemy_timer_timeout() -> void:

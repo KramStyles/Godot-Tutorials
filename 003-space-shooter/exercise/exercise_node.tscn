@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d026wovsb1gs8"]
+
+[ext_resource type="Texture2D" uid="uid://ch3iw5l7i02yv" path="res://assets/rock.png" id="1_0beri"]
+[ext_resource type="Script" uid="uid://de7wqyw6yyepv" path="res://exercise/exercise_node.gd" id="1_rqdtv"]
+
+[node name="ExerciseNode" type="Node2D" unique_id=124909379]
+script = ExtResource("1_rqdtv")
+
+[node name="Rock" type="Sprite2D" parent="." unique_id=446230639]
+position = Vector2(80, 72)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_0beri")
