@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6ogdpy7plhwv" path="res://assets/images/map.jpeg" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://g2dhnb5c8sj0" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://c31p3audxguh0" path="res://scenes/rec_static.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=1379039130]
 
@@ -9,5 +10,66 @@
 texture = ExtResource("1_o5qli")
 
 [node name="Player" parent="." unique_id=2144651128 instance=ExtResource("2_0wfyh")]
-position = Vector2(76, 99)
-scale = Vector2(3, 3)
+position = Vector2(58, 98)
+
+[node name="ExternalCollisions" type="Node" parent="." unique_id=98620847]
+
+[node name="RecStatic" parent="ExternalCollisions" unique_id=143043132 instance=ExtResource("3_sugp2")]
+position = Vector2(200, 92)
+scale = Vector2(3, 2)
+
+[node name="RecStatic2" parent="ExternalCollisions" unique_id=814147504 instance=ExtResource("3_sugp2")]
+position = Vector2(284, 60.000004)
+scale = Vector2(1.3, 3)
+
+[node name="RecStatic3" parent="ExternalCollisions" unique_id=171662325 instance=ExtResource("3_sugp2")]
+position = Vector2(317, 125)
+scale = Vector2(1, 2)
+
+[node name="RecStatic4" parent="ExternalCollisions" unique_id=2083478988 instance=ExtResource("3_sugp2")]
+position = Vector2(382, 130)
+scale = Vector2(1, 2)
+
+[node name="RecStatic5" parent="ExternalCollisions" unique_id=534292686 instance=ExtResource("3_sugp2")]
+position = Vector2(118, 144)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic7" parent="ExternalCollisions" unique_id=1415693830 instance=ExtResource("3_sugp2")]
+position = Vector2(-19, 143)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic11" parent="ExternalCollisions" unique_id=1036146023 instance=ExtResource("3_sugp2")]
+position = Vector2(-151, 115)
+scale = Vector2(0.6, 2)
+
+[node name="RecStatic12" parent="ExternalCollisions" unique_id=381670798 instance=ExtResource("3_sugp2")]
+position = Vector2(-250, 116)
+scale = Vector2(0.6, 2)
+
+[node name="RecStatic13" parent="ExternalCollisions" unique_id=1551204685 instance=ExtResource("3_sugp2")]
+position = Vector2(-220, 119)
+scale = Vector2(0.6, 2)
+
+[node name="RecStatic14" parent="ExternalCollisions" unique_id=1733529667 instance=ExtResource("3_sugp2")]
+position = Vector2(-182, 118)
+scale = Vector2(0.6, 2)
+
+[node name="RecStatic8" parent="ExternalCollisions" unique_id=151153395 instance=ExtResource("3_sugp2")]
+position = Vector2(-18, 42)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic9" parent="ExternalCollisions" unique_id=1758252114 instance=ExtResource("3_sugp2")]
+position = Vector2(220.00002, -156)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic10" parent="ExternalCollisions" unique_id=797673743 instance=ExtResource("3_sugp2")]
+position = Vector2(-52, -160)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic15" parent="ExternalCollisions" unique_id=137326119 instance=ExtResource("3_sugp2")]
+position = Vector2(-281, -161)
+scale = Vector2(0.6, 1)
+
+[node name="RecStatic6" parent="ExternalCollisions" unique_id=56698763 instance=ExtResource("3_sugp2")]
+position = Vector2(120, 42)
+scale = Vector2(0.6, 1)
