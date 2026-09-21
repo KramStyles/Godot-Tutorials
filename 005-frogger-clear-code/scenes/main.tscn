@@ -98,13 +98,42 @@ polygon = PackedVector2Array(-7, 243, 210, 246, 210, 175, 620, 174, 616, 237, 77
 [node name="Timers" type="Node" parent="." unique_id=1869932035]
 
 [node name="CarTimer" type="Timer" parent="Timers" unique_id=369983159]
-wait_time = 3.0
+wait_time = 0.5
 autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1516529633]
 
 [node name="Player" parent="Objects" unique_id=2144651128 instance=ExtResource("2_0wfyh")]
 position = Vector2(58, 98)
+
+[node name="CarStartPositions" type="Node" parent="." unique_id=1047296380]
+
+[node name="Marker2D" type="Marker2D" parent="CarStartPositions" unique_id=649951129]
+position = Vector2(-416, 342)
+
+[node name="Marker2D2" type="Marker2D" parent="CarStartPositions" unique_id=29902872]
+position = Vector2(418, 296)
+
+[node name="Marker2D3" type="Marker2D" parent="CarStartPositions" unique_id=1338081799]
+position = Vector2(-416, 241)
+
+[node name="Marker2D4" type="Marker2D" parent="CarStartPositions" unique_id=170961511]
+position = Vector2(418, 192)
+
+[node name="Marker2D5" type="Marker2D" parent="CarStartPositions" unique_id=2105398779]
+position = Vector2(-414, 2)
+
+[node name="Marker2D6" type="Marker2D" parent="CarStartPositions" unique_id=571067445]
+position = Vector2(418, -46)
+
+[node name="Marker2D9" type="Marker2D" parent="CarStartPositions" unique_id=50236450]
+position = Vector2(-416, -104)
+
+[node name="Marker2D7" type="Marker2D" parent="CarStartPositions" unique_id=1030276458]
+position = Vector2(418, -193)
+
+[node name="Marker2D8" type="Marker2D" parent="CarStartPositions" unique_id=199091879]
+position = Vector2(-414, -238)
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 [connection signal="timeout" from="Timers/CarTimer" to="." method="_on_car_timer_timeout"]

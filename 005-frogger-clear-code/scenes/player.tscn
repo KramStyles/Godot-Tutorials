@@ -179,7 +179,7 @@ scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_s0msa")
 animation = &"die"
 autoplay = "idle"
-frame_progress = 0.41397476
+frame_progress = 0.008472303
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1631049534]
 position = Vector2(-0.6666667, 0.6666666)
@@ -187,7 +187,7 @@ shape = SubResource("RectangleShape2D_s0msa")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=666137108]
 position = Vector2(-0.33333334, -14.333334)
-zoom = Vector2(4, 4)
+zoom = Vector2(1.8, 1.8)
 limit_left = -400
 limit_top = -665
 limit_right = 400
