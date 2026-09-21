@@ -1,0 +1,26 @@
+extends CharacterBody2D
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+const SPEED := 5.0
+var direction = Vector2.ONE
+
+
+func _physics_process(_delta: float) -> void:
+
+	# This gets the direction: -1, 0, 1
+	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if direction:
+		position += direction * SPEED
+		if direction.x != 0:
+			animated_sprite.play("running-x")
+			if direction.x > 0: animated_sprite.flip_h = false
+			elif direction.x < 0: animated_sprite.flip_h = true
+		else:
+			if direction.y > 0: animated_sprite.play("running-down")
+			else: animated_sprite.play("running-up")
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animated_sprite.play("idle")
+
+	move_and_slide()
