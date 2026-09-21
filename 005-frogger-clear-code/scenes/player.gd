@@ -14,11 +14,11 @@ func _physics_process(_delta: float) -> void:
 		position += direction * SPEED
 		if direction.x != 0:
 			animated_sprite.play("running-x")
-			if direction.x > 0: animated_sprite.flip_h = false
-			elif direction.x < 0: animated_sprite.flip_h = true
+			animated_sprite.flip_h = !direction.x > 0
+			#if direction.x > 0: animated_sprite.flip_h = false
+			#elif direction.x < 0: animated_sprite.flip_h = true
 		else:
-			if direction.y > 0: animated_sprite.play("running-x")
-			else: animated_sprite.play("running-up")
+			animated_sprite.play("running-x") if direction.y > 0 else animated_sprite.play("running-up")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("idle")

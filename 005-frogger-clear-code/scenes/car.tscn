@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://d3llvt6arvda2"]
+
+[ext_resource type="Texture2D" uid="uid://d1vhfwe7eeoc4" path="res://assets/images/cars.png" id="1_c35m8"]
+[ext_resource type="Script" uid="uid://b4buiht35w4bn" path="res://scenes/car.gd" id="1_qt2eu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otl3t"]
+atlas = ExtResource("1_c35m8")
+region = Rect2(151, 17.833328, 68, 130.33334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jetx3"]
+size = Vector2(80, 32)
+
+[node name="Car" type="Area2D" unique_id=1077697084]
+script = ExtResource("1_qt2eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1484475178]
+rotation = 1.5707964
+scale = Vector2(0.67, 0.67)
+texture = SubResource("AtlasTexture_otl3t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1033309285]
+shape = SubResource("RectangleShape2D_jetx3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1047573570]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
