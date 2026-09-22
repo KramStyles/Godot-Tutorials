@@ -1,7 +1,7 @@
 extends Area2D
 
 var direction := Vector2.RIGHT
-var speed = 4
+var speed = 400
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
@@ -14,13 +14,14 @@ func set_car_region(region: Rect2) -> void:
 
 
 func _process(delta: float) -> void:
-	position += direction * speed
+	position += direction * speed * delta
 	
 
 func _ready() -> void:
 	if position.x > 0:
 		direction = Vector2.LEFT
 		rotate(3.15)
+		
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

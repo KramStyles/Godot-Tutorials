@@ -16,6 +16,13 @@ const CAR_REGIONS: Array[Rect2] = [
 ]
 
 
+func go_to_title(body):
+	body.animated_sprite.play("die")
+	print(body.animated_sprite.animation)
+	# Not working
+	#await body.animated_sprite.animation_finished
+
+
 func _on_car_timer_timeout() -> void:
 	var car : Area2D = car_scene.instantiate()
 	var random_region = CAR_REGIONS.pick_random()
@@ -24,6 +31,7 @@ func _on_car_timer_timeout() -> void:
 	car.position = pos_marker.position
 	$Objects.add_child(car)
 	car.set_car_region(random_region)
+	car.connect("body_entered", go_to_title)
 	
 
 func _on_finish_area_body_entered(body: Node2D) -> void:

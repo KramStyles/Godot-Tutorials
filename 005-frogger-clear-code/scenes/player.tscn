@@ -171,15 +171,17 @@ size = Vector2(3.3333335, 6)
 
 [node name="Player" type="CharacterBody2D" unique_id=2144651128]
 scale = Vector2(3, 3)
+collision_layer = 2
+collision_mask = 13
 script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=694891861]
 position = Vector2(-0.6666666, -1.6666665)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_s0msa")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.008472303
+frame_progress = 0.833575
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1631049534]
 position = Vector2(-0.6666667, 0.6666666)

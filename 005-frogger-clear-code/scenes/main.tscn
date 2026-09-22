@@ -4,12 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://6ogdpy7plhwv" path="res://assets/images/map.jpeg" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://g2dhnb5c8sj0" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c31p3audxguh0" path="res://scenes/rec_static.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cvv1pm7isrxxp" path="res://scenes/items.tscn" id="5_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=1379039130]
 script = ExtResource("1_jyhfs")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=889685674]
 texture = ExtResource("1_o5qli")
+metadata/_edit_lock_ = true
 
 [node name="ExternalCollisions" type="Node" parent="." unique_id=98620847]
 
@@ -48,10 +50,12 @@ scale = Vector2(0.6, 2)
 [node name="RecStatic16" parent="ExternalCollisions" unique_id=2081228247 instance=ExtResource("3_sugp2")]
 position = Vector2(-395, -1)
 scale = Vector2(0.2, 67)
+metadata/_edit_lock_ = true
 
 [node name="RecStatic17" parent="ExternalCollisions" unique_id=189027310 instance=ExtResource("3_sugp2")]
 position = Vector2(395, -1)
 scale = Vector2(0.2, 67)
+metadata/_edit_lock_ = true
 
 [node name="RecStatic13" parent="ExternalCollisions" unique_id=1551204685 instance=ExtResource("3_sugp2")]
 position = Vector2(-220, 119)
@@ -76,10 +80,12 @@ scale = Vector2(0.6, 1)
 [node name="RecStatic18" parent="ExternalCollisions" unique_id=531433676 instance=ExtResource("3_sugp2")]
 position = Vector2(2, -660)
 scale = Vector2(40, 0.2)
+metadata/_edit_lock_ = true
 
 [node name="RecStatic19" parent="ExternalCollisions" unique_id=1798414291 instance=ExtResource("3_sugp2")]
 position = Vector2(2, 665)
 scale = Vector2(40, 0.2)
+metadata/_edit_lock_ = true
 
 [node name="RecStatic15" parent="ExternalCollisions" unique_id=137326119 instance=ExtResource("3_sugp2")]
 position = Vector2(-281, -161)
@@ -102,38 +108,121 @@ wait_time = 0.5
 autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1516529633]
+y_sort_enabled = true
 
 [node name="Player" parent="Objects" unique_id=2144651128 instance=ExtResource("2_0wfyh")]
 position = Vector2(58, 98)
+
+[node name="LargeTree" parent="Objects" unique_id=1877348803 instance=ExtResource("5_tbgi4")]
+position = Vector2(-104, 2)
+
+[node name="PineTree" parent="Objects" unique_id=1466867183 instance=ExtResource("5_tbgi4")]
+position = Vector2(-24, 552)
+
+[node name="Sprite2D" parent="Objects/PineTree" index="0" unique_id=1910171106]
+region_rect = Rect2(344, 22.148998, 91, 133.888)
+
+[node name="BlueHouse" parent="Objects" unique_id=1741944005 instance=ExtResource("5_tbgi4")]
+position = Vector2(-96, 584)
+
+[node name="Sprite2D" parent="Objects/BlueHouse" index="0" unique_id=1910171106]
+region_rect = Rect2(25, 164.149, 121, 137.99998)
+
+[node name="Bench" parent="Objects" unique_id=2017134837 instance=ExtResource("5_tbgi4")]
+position = Vector2(336, 472)
+
+[node name="Sprite2D" parent="Objects/Bench" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 1)
+
+[node name="Bench2" parent="Objects" unique_id=1388223159 instance=ExtResource("5_tbgi4")]
+position = Vector2(232, 472)
+
+[node name="Sprite2D" parent="Objects/Bench2" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench2" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 1)
+
+[node name="StreetSign" parent="Objects" unique_id=246542508 instance=ExtResource("5_tbgi4")]
+position = Vector2(-120, 328)
+
+[node name="Sprite2D" parent="Objects/StreetSign" index="0" unique_id=1910171106]
+region_rect = Rect2(175.56842, 298.43457, 87.15253, 141.9985)
+
+[node name="CollisionShape2D" parent="Objects/StreetSign" index="1" unique_id=133057077]
+position = Vector2(1, 51)
+scale = Vector2(0.25, 0.7)
+
+[node name="Bench3" parent="Objects" unique_id=6400005 instance=ExtResource("5_tbgi4")]
+position = Vector2(-336, 480)
+
+[node name="Sprite2D" parent="Objects/Bench3" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench3" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 1)
+
+[node name="CopCar" parent="Objects" unique_id=895106266 instance=ExtResource("5_tbgi4")]
+position = Vector2(-312, 92)
+
+[node name="Sprite2D" parent="Objects/CopCar" index="0" unique_id=1910171106]
+region_rect = Rect2(350.6372, 456.58252, 65.19675, 122.94238)
+
+[node name="CollisionShape2D" parent="Objects/CopCar" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 2)
 
 [node name="CarStartPositions" type="Node" parent="." unique_id=1047296380]
 
 [node name="Marker2D" type="Marker2D" parent="CarStartPositions" unique_id=649951129]
 position = Vector2(-416, 342)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D2" type="Marker2D" parent="CarStartPositions" unique_id=29902872]
 position = Vector2(418, 296)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D3" type="Marker2D" parent="CarStartPositions" unique_id=1338081799]
 position = Vector2(-416, 241)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D4" type="Marker2D" parent="CarStartPositions" unique_id=170961511]
 position = Vector2(418, 192)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D5" type="Marker2D" parent="CarStartPositions" unique_id=2105398779]
 position = Vector2(-414, 2)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D6" type="Marker2D" parent="CarStartPositions" unique_id=571067445]
 position = Vector2(418, -46)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D9" type="Marker2D" parent="CarStartPositions" unique_id=50236450]
 position = Vector2(-416, -104)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D7" type="Marker2D" parent="CarStartPositions" unique_id=1030276458]
 position = Vector2(418, -193)
+metadata/_edit_lock_ = true
 
 [node name="Marker2D8" type="Marker2D" parent="CarStartPositions" unique_id=199091879]
 position = Vector2(-414, -238)
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 [connection signal="timeout" from="Timers/CarTimer" to="." method="_on_car_timer_timeout"]
+
+[editable path="Objects/PineTree"]
+[editable path="Objects/BlueHouse"]
+[editable path="Objects/Bench"]
+[editable path="Objects/Bench2"]
+[editable path="Objects/StreetSign"]
+[editable path="Objects/Bench3"]
+[editable path="Objects/CopCar"]
