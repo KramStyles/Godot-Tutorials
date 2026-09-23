@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://rkvjxb2xknbd"]
+
+[ext_resource type="FontFile" uid="uid://dr201ov4c76pb" path="res://assets/fonts/Crackman.otf" id="1_4ignj"]
+[ext_resource type="Texture2D" uid="uid://d2dogm0fem07l" path="res://assets/images/player/idle/fighter_Idle_0006.png" id="2_p6dhs"]
+[ext_resource type="Texture2D" uid="uid://c3tt6k6ukf2y4" path="res://assets/images/player/actions/fighter_death_0055.png" id="3_pyl7j"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://assets/fonts/Better VCR 9.0.1.ttf" id="4_pyl7j"]
+
+[node name="Title" type="Control" unique_id=1702911285]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=874470454]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_position = Vector2(20, -20)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1131557687]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.5
+offset_top = -170.5
+offset_right = 424.5
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_4ignj")
+theme_override_font_sizes/font_size = 140
+text = "Stick 
+Road Cross"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1318627233]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -547.0
+offset_top = -593.0
+offset_right = -35.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_p6dhs")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=156424978]
+layout_mode = 0
+offset_left = 614.0
+offset_top = 263.0
+offset_right = 1126.0
+offset_bottom = 775.0
+texture = ExtResource("3_pyl7j")
+
+[node name="Label2" type="Label" parent="." unique_id=144705715]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = -100.0
+offset_right = 59.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_pyl7j")
+theme_override_font_sizes/font_size = 45
+text = "High Score: 123"

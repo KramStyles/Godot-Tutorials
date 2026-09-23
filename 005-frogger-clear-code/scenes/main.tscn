@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://g2dhnb5c8sj0" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c31p3audxguh0" path="res://scenes/rec_static.tscn" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cvv1pm7isrxxp" path="res://scenes/items.tscn" id="5_tbgi4"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://assets/fonts/Better VCR 9.0.1.ttf" id="6_tefeu"]
 
 [node name="Main" type="Node2D" unique_id=1379039130]
 script = ExtResource("1_jyhfs")
@@ -97,14 +98,19 @@ scale = Vector2(0.6, 1)
 
 [node name="FinishArea" type="Area2D" parent="." unique_id=1544276033]
 position = Vector2(-384, -645)
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FinishArea" unique_id=148076402]
+visible = false
 polygon = PackedVector2Array(-7, 243, 210, 246, 210, 175, 620, 174, 616, 237, 776, 237, 776, -11, -8, -11)
 
 [node name="Timers" type="Node" parent="." unique_id=1869932035]
 
 [node name="CarTimer" type="Timer" parent="Timers" unique_id=369983159]
 wait_time = 0.5
+autostart = true
+
+[node name="TimeTimer" type="Timer" parent="Timers" unique_id=1815975729]
 autostart = true
 
 [node name="Objects" type="Node2D" parent="." unique_id=1516529633]
@@ -130,23 +136,80 @@ region_rect = Rect2(25, 164.149, 121, 137.99998)
 
 [node name="Bench" parent="Objects" unique_id=2017134837 instance=ExtResource("5_tbgi4")]
 position = Vector2(336, 472)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" parent="Objects/Bench" index="0" unique_id=1910171106]
 region_rect = Rect2(328, 378.5, 109, 65.64899)
 
 [node name="CollisionShape2D" parent="Objects/Bench" index="1" unique_id=133057077]
-position = Vector2(0, 0)
-scale = Vector2(2, 1)
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
 
-[node name="Bench2" parent="Objects" unique_id=1388223159 instance=ExtResource("5_tbgi4")]
-position = Vector2(232, 472)
+[node name="Bench2" parent="Objects" unique_id=1978386252 instance=ExtResource("5_tbgi4")]
+position = Vector2(280, 472)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" parent="Objects/Bench2" index="0" unique_id=1910171106]
 region_rect = Rect2(328, 378.5, 109, 65.64899)
 
 [node name="CollisionShape2D" parent="Objects/Bench2" index="1" unique_id=133057077]
-position = Vector2(0, 0)
-scale = Vector2(2, 1)
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
+
+[node name="Bench3" parent="Objects" unique_id=1855423617 instance=ExtResource("5_tbgi4")]
+position = Vector2(-72, 456)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/Bench3" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench3" index="1" unique_id=133057077]
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
+
+[node name="Bench5" parent="Objects" unique_id=240948495 instance=ExtResource("5_tbgi4")]
+position = Vector2(-120, 456)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/Bench5" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench5" index="1" unique_id=133057077]
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
+
+[node name="Bench6" parent="Objects" unique_id=251605892 instance=ExtResource("5_tbgi4")]
+position = Vector2(-304, 456)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/Bench6" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench6" index="1" unique_id=133057077]
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
+
+[node name="Bench7" parent="Objects" unique_id=35570821 instance=ExtResource("5_tbgi4")]
+position = Vector2(-360, 456)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/Bench7" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench7" index="1" unique_id=133057077]
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
+
+[node name="Bench4" parent="Objects" unique_id=572093255 instance=ExtResource("5_tbgi4")]
+position = Vector2(224, 472)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/Bench4" index="0" unique_id=1910171106]
+region_rect = Rect2(328, 378.5, 109, 65.64899)
+
+[node name="CollisionShape2D" parent="Objects/Bench4" index="1" unique_id=133057077]
+position = Vector2(0, -10)
+scale = Vector2(3, 0.505)
 
 [node name="StreetSign" parent="Objects" unique_id=246542508 instance=ExtResource("5_tbgi4")]
 position = Vector2(-120, 328)
@@ -158,16 +221,6 @@ region_rect = Rect2(175.56842, 298.43457, 87.15253, 141.9985)
 position = Vector2(1, 51)
 scale = Vector2(0.25, 0.7)
 
-[node name="Bench3" parent="Objects" unique_id=6400005 instance=ExtResource("5_tbgi4")]
-position = Vector2(-336, 480)
-
-[node name="Sprite2D" parent="Objects/Bench3" index="0" unique_id=1910171106]
-region_rect = Rect2(328, 378.5, 109, 65.64899)
-
-[node name="CollisionShape2D" parent="Objects/Bench3" index="1" unique_id=133057077]
-position = Vector2(0, 0)
-scale = Vector2(2, 1)
-
 [node name="CopCar" parent="Objects" unique_id=895106266 instance=ExtResource("5_tbgi4")]
 position = Vector2(-312, 92)
 
@@ -177,6 +230,108 @@ region_rect = Rect2(350.6372, 456.58252, 65.19675, 122.94238)
 [node name="CollisionShape2D" parent="Objects/CopCar" index="1" unique_id=133057077]
 position = Vector2(0, 0)
 scale = Vector2(2, 2)
+
+[node name="CopCar2" parent="Objects" unique_id=911156351 instance=ExtResource("5_tbgi4")]
+position = Vector2(184, -392)
+
+[node name="Sprite2D" parent="Objects/CopCar2" index="0" unique_id=1910171106]
+region_rect = Rect2(350.6372, 456.58252, 65.19675, 122.94238)
+
+[node name="CollisionShape2D" parent="Objects/CopCar2" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 2)
+
+[node name="StreetLamp" parent="Objects" unique_id=1170486459 instance=ExtResource("5_tbgi4")]
+position = Vector2(-24, -392)
+
+[node name="Sprite2D" parent="Objects/StreetLamp" index="0" unique_id=1910171106]
+region_rect = Rect2(285.49213, 306.58813, 29.281982, 137.6254)
+
+[node name="CollisionShape2D" parent="Objects/StreetLamp" index="1" unique_id=133057077]
+position = Vector2(0, 45)
+scale = Vector2(0.4, 0.6)
+
+[node name="BigWasteBin" parent="Objects" unique_id=1318512130 instance=ExtResource("5_tbgi4")]
+position = Vector2(-150, -471)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="Objects/BigWasteBin" index="0" unique_id=1910171106]
+region_rect = Rect2(34.119385, 467.6953, 81.989624, 117.12805)
+
+[node name="CollisionShape2D" parent="Objects/BigWasteBin" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 2)
+
+[node name="WasteBin" parent="Objects" unique_id=856678647 instance=ExtResource("5_tbgi4")]
+position = Vector2(-212, -533)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" parent="Objects/WasteBin" index="0" unique_id=1910171106]
+region_rect = Rect2(352.8407, 289.01892, 61.492188, 76.13321)
+
+[node name="CollisionShape2D" parent="Objects/WasteBin" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+
+[node name="WasteBin2" parent="Objects" unique_id=234424344 instance=ExtResource("5_tbgi4")]
+position = Vector2(76.99997, -533)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" parent="Objects/WasteBin2" index="0" unique_id=1910171106]
+region_rect = Rect2(352.8407, 289.01892, 61.492188, 76.13321)
+
+[node name="CollisionShape2D" parent="Objects/WasteBin2" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+
+[node name="WasteBin3" parent="Objects" unique_id=1234207791 instance=ExtResource("5_tbgi4")]
+position = Vector2(219.99998, -533)
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" parent="Objects/WasteBin3" index="0" unique_id=1910171106]
+region_rect = Rect2(352.8407, 289.01892, 61.492188, 76.13321)
+
+[node name="CollisionShape2D" parent="Objects/WasteBin3" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+
+[node name="CopCar3" parent="Objects" unique_id=1457941300 instance=ExtResource("5_tbgi4")]
+position = Vector2(96, -384)
+rotation = 3.1415927
+
+[node name="Sprite2D" parent="Objects/CopCar3" index="0" unique_id=1910171106]
+region_rect = Rect2(350.6372, 456.58252, 65.19675, 122.94238)
+
+[node name="CollisionShape2D" parent="Objects/CopCar3" index="1" unique_id=133057077]
+position = Vector2(0, 0)
+scale = Vector2(2, 2)
+
+[node name="House" parent="Objects" unique_id=1883957474 instance=ExtResource("5_tbgi4")]
+position = Vector2(-304, -581)
+
+[node name="Sprite2D" parent="Objects/House" index="0" unique_id=1910171106]
+region_rect = Rect2(9, 15.49, 175, 135)
+
+[node name="CollisionShape2D" parent="Objects/House" index="1" unique_id=133057077]
+position = Vector2(2, 12)
+scale = Vector2(4.6, 2)
+
+[node name="House2" parent="Objects" unique_id=1374607158 instance=ExtResource("5_tbgi4")]
+position = Vector2(307, -581)
+
+[node name="Sprite2D" parent="Objects/House2" index="0" unique_id=1910171106]
+region_rect = Rect2(9, 15.49, 175, 135)
+
+[node name="CollisionShape2D" parent="Objects/House2" index="1" unique_id=133057077]
+position = Vector2(0, 12)
+scale = Vector2(4, 2)
+
+[node name="House3" parent="Objects" unique_id=105116612 instance=ExtResource("5_tbgi4")]
+position = Vector2(2, -581)
+
+[node name="Sprite2D" parent="Objects/House3" index="0" unique_id=1910171106]
+region_rect = Rect2(11, 310.5, 150, 141)
+
+[node name="CollisionShape2D" parent="Objects/House3" index="1" unique_id=133057077]
+position = Vector2(0, 12)
+scale = Vector2(4, 2)
 
 [node name="CarStartPositions" type="Node" parent="." unique_id=1047296380]
 
@@ -216,13 +371,52 @@ metadata/_edit_lock_ = true
 position = Vector2(-414, -238)
 metadata/_edit_lock_ = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1383650603]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer" unique_id=1068374304]
+z_index = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 4.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("6_tefeu")
+theme_override_font_sizes/font_size = 25
+text = "Time: 0"
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1193969271]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 38.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 0.41568628)
+
 [connection signal="body_entered" from="FinishArea" to="." method="_on_finish_area_body_entered"]
 [connection signal="timeout" from="Timers/CarTimer" to="." method="_on_car_timer_timeout"]
+[connection signal="timeout" from="Timers/TimeTimer" to="." method="_on_time_timer_timeout"]
 
 [editable path="Objects/PineTree"]
 [editable path="Objects/BlueHouse"]
 [editable path="Objects/Bench"]
 [editable path="Objects/Bench2"]
-[editable path="Objects/StreetSign"]
 [editable path="Objects/Bench3"]
+[editable path="Objects/Bench5"]
+[editable path="Objects/Bench6"]
+[editable path="Objects/Bench7"]
+[editable path="Objects/Bench4"]
+[editable path="Objects/StreetSign"]
 [editable path="Objects/CopCar"]
+[editable path="Objects/CopCar2"]
+[editable path="Objects/StreetLamp"]
+[editable path="Objects/BigWasteBin"]
+[editable path="Objects/WasteBin"]
+[editable path="Objects/WasteBin2"]
+[editable path="Objects/WasteBin3"]
+[editable path="Objects/CopCar3"]
+[editable path="Objects/House"]
+[editable path="Objects/House2"]
+[editable path="Objects/House3"]

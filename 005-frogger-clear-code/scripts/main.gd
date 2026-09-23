@@ -1,6 +1,10 @@
 extends Node2D
 
 var car_scene: PackedScene = preload("res://scenes/car.tscn")
+var time_started := 0
+var is_alive := true
+@onready var time_label: Label = $CanvasLayer/TimeLabel
+
 const CAR_REGIONS: Array[Rect2] = [
 	Rect2(20, 18, 67, 130),    # Car 1
 	Rect2(150, 18, 67, 130),    # Car 2
@@ -36,3 +40,9 @@ func _on_car_timer_timeout() -> void:
 
 func _on_finish_area_body_entered(body: Node2D) -> void:
 	print("Hurray")
+
+
+func _on_time_timer_timeout() -> void:
+	if is_alive:
+		time_started += 1
+	time_label.text = "Time: {time}".format({"time": time_started})
