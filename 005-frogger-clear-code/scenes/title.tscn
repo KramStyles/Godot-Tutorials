@@ -67,7 +67,7 @@ offset_right = 1126.0
 offset_bottom = 775.0
 texture = ExtResource("3_pyl7j")
 
-[node name="Label2" type="Label" parent="." unique_id=144705715]
+[node name="TimeLabel" type="Label" parent="." unique_id=144705715]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -81,4 +81,4 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("4_pyl7j")
 theme_override_font_sizes/font_size = 45
-text = "High Score: 123"
+text = "High Score: 0"
