@@ -22,7 +22,7 @@ const CAR_REGIONS: Array[Rect2] = [
 
 func go_to_title(body):
 	body.animated_sprite.play("die")
-	print(body.animated_sprite.animation)
+	call_deferred("change_scene")
 	# Not working
 	#await body.animated_sprite.animation_finished
 
@@ -38,8 +38,13 @@ func _on_car_timer_timeout() -> void:
 	car.connect("body_entered", go_to_title)
 	
 
-func _on_finish_area_body_entered(body: Node2D) -> void:
-	print("Hurray")
+func _on_finish_area_body_entered(_body: Node2D) -> void:
+	call_deferred("change_scene")
+	
+	
+func change_scene():
+	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	
 
 
 func _on_time_timer_timeout() -> void:

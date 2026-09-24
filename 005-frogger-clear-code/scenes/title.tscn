@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rkvjxb2xknbd"]
 
 [ext_resource type="FontFile" uid="uid://dr201ov4c76pb" path="res://assets/fonts/Crackman.otf" id="1_4ignj"]
+[ext_resource type="Script" uid="uid://dtpc0ocyiaysx" path="res://scripts/title.gd" id="1_b3w7a"]
 [ext_resource type="Texture2D" uid="uid://d2dogm0fem07l" path="res://assets/images/player/idle/fighter_Idle_0006.png" id="2_p6dhs"]
 [ext_resource type="Texture2D" uid="uid://c3tt6k6ukf2y4" path="res://assets/images/player/actions/fighter_death_0055.png" id="3_pyl7j"]
 [ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://assets/fonts/Better VCR 9.0.1.ttf" id="4_pyl7j"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_b3w7a")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=874470454]
 layout_mode = 1
