@@ -117,7 +117,7 @@ autostart = true
 y_sort_enabled = true
 
 [node name="Player" parent="Objects" unique_id=2144651128 instance=ExtResource("2_0wfyh")]
-position = Vector2(58, 98)
+position = Vector2(-24, 630)
 
 [node name="LargeTree" parent="Objects" unique_id=1877348803 instance=ExtResource("5_tbgi4")]
 position = Vector2(-104, 2)

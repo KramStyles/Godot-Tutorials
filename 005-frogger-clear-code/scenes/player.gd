@@ -4,9 +4,16 @@ extends CharacterBody2D
 
 const SPEED := 100.0
 var direction = Vector2.ONE
+var is_dead := false
+
+
+func die():
+	is_dead = true
+	animated_sprite.play("die")
 
 
 func _physics_process(delta: float) -> void:
+	if is_dead: return
 
 	# This gets the direction: -1, 0, 1
 	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")

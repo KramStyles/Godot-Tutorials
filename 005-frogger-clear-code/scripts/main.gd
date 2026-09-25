@@ -21,13 +21,12 @@ const CAR_REGIONS: Array[Rect2] = [
 
 
 func go_to_title(body):
-	# Wait specifically for the "die" animation to finish playing
-	
 	# Save score and switch scenes AFTER the animation completes
 	Global.user_score = "Game Over: {score}".format({"score": time_started})
-	body.animated_sprite.play("die")
+	if body.has_method("die"):
+		body.die()
+	
 	await body.animated_sprite.animation_finished
-	print("reaching")
 	change_scene()
 	# Not working
 	#await body.animated_sprite.animation_finished
@@ -46,11 +45,11 @@ func _on_car_timer_timeout() -> void:
 
 func _on_finish_area_body_entered(_body: Node2D) -> void:
 	Global.user_score = "High Score: {score}".format({"score": time_started})
-	call_deferred("change_scene")
+	change_scene()
 	
 	
 func change_scene():
-	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/title.tscn")
 	
 
 

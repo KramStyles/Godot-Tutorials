@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://d1vhfwe7eeoc4" path="res://assets/images/cars.png" id="1_c35m8"]
 [ext_resource type="Script" uid="uid://b4buiht35w4bn" path="res://scenes/car.gd" id="1_qt2eu"]
+[ext_resource type="AudioStream" uid="uid://yejgkhtulxsa" path="res://assets/audio/car.mp3" id="3_50v30"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otl3t"]
 atlas = ExtResource("1_c35m8")
@@ -24,5 +25,12 @@ texture = SubResource("AtlasTexture_otl3t")
 shape = SubResource("RectangleShape2D_jetx3")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1047573570]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2066798398]
+stream = ExtResource("3_50v30")
+volume_db = -22.807
+autoplay = true
+max_distance = 500.0
+parameters/looping = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
